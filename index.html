@@ -1,1 +1,73 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h2>Animated Collapsibles</h2>
+
+<p>you know that some phones (like Samsung or Sony for example) have a PowerSaving Mode that might stop alarms from working? Not to miss your alarms, turn off Power Saving mode or add Smart Alarm into your whitelist. 
+    Also, if you use third-party memory cleaners, make sure they do not unload the application from memory</p>
+
+<h4>Whitelist</h4>
+<p>Here we have the instructions to add the appinto whitelist for specific manufactures</p>
+<button class="collapsible">Huewei</button>
+<div class="content">
+  <ol start="1">
+    <li>Go to Settings -> Power Saving</li>
+    <li>See if you can add Smart Alarm to the
+      protected whitelist. Also, if your device has a
+      memory manager (tap a right square button)
+      you need to lock the app. Just click on the
+      lock icon. If you do not have such settings,
+      just ignore it.
+    </li>
+    </ol>
+</div>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
